@@ -11,7 +11,6 @@ import { ShopModule } from './shop/shop.module';
 @NgModule({
   declarations: [
     AppComponent,
-    
   ],
   imports: [
     BrowserModule,
