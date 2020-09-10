@@ -35,11 +35,11 @@ export class ShopService {
     params = params.append('pageSize', shopParams.pageSize.toString());
 
     return this.http.get<IPagination>(this.baseUrl + 'products', { observe: 'response', params })
-    .pipe(
-      map(response => {
-        return response.body;
-      })
-    );
+      .pipe(
+        map(response => {
+          return response.body;
+        })
+      );
   }
 
   getProduct(id:number) { 
