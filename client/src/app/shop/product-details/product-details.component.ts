@@ -20,23 +20,28 @@ export class ProductDetailsComponent implements OnInit {
               private basketService: BasketService) {
 this.bcService.set('@productDetails', '');
 }
+// tslint:disable-next-line:typedef
 ngOnInit() {
 this.loadProduct();
 }
 
+// tslint:disable-next-line:typedef
 addItemToBasket() {
 this.basketService.addItemToBasket(this.product, this.quantity);
 }
 
+// tslint:disable-next-line:typedef
 incrementQuantity() {
 this.quantity++;
 }
 
+// tslint:disable-next-line:typedef
 decrementQuantity() {
 if (this.quantity > 1) {
 this.quantity--;
 }
 }
+  // tslint:disable-next-line:typedef
   loadProduct() {
     this.shopService.getProduct(+this.activateRoute.snapshot.paramMap.get('id')).subscribe(product => {
       this.product = product;

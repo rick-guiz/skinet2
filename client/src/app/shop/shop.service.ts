@@ -15,6 +15,7 @@ export class ShopService {
 
   constructor(private http: HttpClient) { }
 
+  // tslint:disable-next-line:typedef
   getProducts(shopParams: ShopParams) {
     let params = new HttpParams();
 
@@ -42,14 +43,17 @@ export class ShopService {
       );
   }
 
-  getProduct(id:number) { 
+  // tslint:disable-next-line:typedef
+  getProduct(id: number) {
     return this.http.get<IProduct>(this.baseUrl + 'products/' + id);
   }
 
+  // tslint:disable-next-line:typedef
   getBrands() {
     return this.http.get<IBrand[]>(this.baseUrl + 'products/brands');
   }
 
+  // tslint:disable-next-line:typedef
   getTypes() {
     return this.http.get<IType[]>(this.baseUrl + 'products/types');
   }
