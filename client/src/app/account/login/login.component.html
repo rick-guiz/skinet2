@@ -11,12 +11,4 @@
             <button [disabled]="loginForm.invalid" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         </form>
     </div>
-
-    <div>
-      <p>Form status: {{loginForm.status}}</p>
-      <p>Email status: {{loginForm.get('email').status}}</p>
-      <p>Email status: {{loginForm.get('email').touched}}</p>
-      <p>Email status: {{loginForm.get('email').dirty}}</p>
-      <pre>{{loginForm.value | json}}</pre>
-    </div>
 </div>

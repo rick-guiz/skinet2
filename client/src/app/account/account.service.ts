@@ -12,20 +12,20 @@ import { map } from 'rxjs/operators';
 })
 export class AccountService {
   baseUrl = environment.apiUrl;
-  private currentUserSource = new BehaviorSubject<IUser>(null);
+  private currentUserSource: ReplaySubject<IUser> = new ReplaySubject(1);
   currentUser$ = this.currentUserSource.asObservable();
 
   constructor(private http: HttpClient, private router: Router) { }
 
   // tslint:disable-next-line:typedef
-  getCurrentUserValue(){
-    return this.currentUserSource.value;
-  }
-
-  // tslint:disable-next-line:typedef
   loadCurrentUser(token: string) {
+    if (token === null) {
+      this.currentUserSource.next(null);
+      return of(null);
+    }
+
     let headers = new HttpHeaders();
-    headers = headers.set('Authorization', 'Bearer ${token}');
+    headers = headers.set('Authorization', `Bearer ${token}`);
 
     return this.http.get(this.baseUrl + 'account', {headers}).pipe(
       map((user: IUser) => {
