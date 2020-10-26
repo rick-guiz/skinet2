@@ -10,10 +10,10 @@ namespace Infrastructure.Services
 {
     public class OrderService : IOrderService
     {
-        private readonly IGenericRepository<Order> _orderRepo;
+        //private readonly IGenericRepository<Order> _orderRepo;
         private readonly IBasketRepository _basketRepo;
-        private readonly IGenericRepository<Product> _productRepo;
-        private readonly IGenericRepository<DeliveryMethod> _dmRepo;
+        //private readonly IGenericRepository<Product> _productRepo;
+        //private readonly IGenericRepository<DeliveryMethod> _dmRepo;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IPaymentService _paymentService;
         public OrderService(IBasketRepository basketRepo, IUnitOfWork unitOfWork, IPaymentService paymentService)
